@@ -20,3 +20,7 @@
 - [ ] Automatically updating answer-keys.
 - [ ] Helper Scripts to check for and correct errors.
 - [ ] A Graphical User Interface.
+
+- [ ] Add a fallback parser (html.parser) incase the main (lxml) fails.
+- [ ] Add a HOW-TO to README.md
+- [ ] Create a example config.json with some `??prefilled values??`
