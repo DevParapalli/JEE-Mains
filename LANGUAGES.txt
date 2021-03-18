@@ -1,0 +1,2 @@
+ENGLISH = ENG
+HINDI = HIN

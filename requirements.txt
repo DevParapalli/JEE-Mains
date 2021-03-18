@@ -4,3 +4,5 @@ requests
 beautifulsoup4
 # low-level parser for bs4
 lxml
+# For command line arguments
+typer

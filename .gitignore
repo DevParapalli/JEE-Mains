@@ -128,6 +128,13 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# Inputs to the program
 *.html
 *.json
-!example_config.json
+!example_config.json 
+# This is an example config, rename and place as config
+
+# Temporary Files
+temp/*.txt
+temp/*.json
+temp/*.html
