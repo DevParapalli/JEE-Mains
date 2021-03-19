@@ -1,5 +1,10 @@
 # NOTES
 
+## Writer's Notes
+
+I have used certain abbreviations such as `scq` to mean Single Choice Question.
+everywhere a `str(...)` is used, I have added a `.strip()` to reduce the possibility of any rogue whitespace coming through.
+
 ## MISC
 
 ### Sorting Algorithm
@@ -23,25 +28,25 @@ INFO PANEL:
 PARSING NEEDS `KNOWN QUESTION TYPE`
 
 QUESTION ID FOR ALL:
-    PATH: `class:menu-tbl` -> `tag:tbody` ->  `tag:tr[1]` -> `tag:td[1]` >> TEXT 
+    PATH: `class:menu-tbl` -> `tag:tbody` ->  `tag:tr[1]` -> `tag:td[-1]` >> TEXT 
 
 QUESTION STATUS FOR INTEGER:
-    PATH: `class:menu-tbl` -> `tag:tbody` ->  `tag:tr[-1]` -> `tag:td[1]` >> TEXT
+    PATH: `class:menu-tbl` -> `tag:tbody` ->  `tag:tr[-1]` -> `tag:td[-1]` >> TEXT
 
 QUESTION STATUS FOR MCQ:
-    PATH: `class:menu-tbl` -> `tag:tbody` ->  `tag:tr[-2]` -> `tag:td[1]` >> TEXT
+    PATH: `class:menu-tbl` -> `tag:tbody` ->  `tag:tr[-2]` -> `tag:td[-1]` >> TEXT
 
 CHOSEN OPTION FOR MCQ:
-    PATH: `class:menu-tbl` -> `tag:tbody` ->  `tag:tr[-1]` -> `tag:td[1]` >> TEXT
+    PATH: `class:menu-tbl` -> `tag:tbody` ->  `tag:tr[-1]` -> `tag:td[-1]` >> TEXT
 
 OPTIONS FOR MCQ:
-    A: `class:menu-tbl` -> `tag:tbody` ->  `tag:tr[2]` -> `tag:td[1]` >> TEXT
-    B: `class:menu-tbl` -> `tag:tbody` ->  `tag:tr[3]` -> `tag:td[1]` >> TEXT
-    C: `class:menu-tbl` -> `tag:tbody` ->  `tag:tr[4]` -> `tag:td[1]` >> TEXT
-    D: `class:menu-tbl` -> `tag:tbody` ->  `tag:tr[5]` -> `tag:td[1]` >> TEXT
+    A: `class:menu-tbl` -> `tag:tbody` ->  `tag:tr[2]` -> `tag:td-[1]` >> TEXT
+    B: `class:menu-tbl` -> `tag:tbody` ->  `tag:tr[3]` -> `tag:td[-1]` >> TEXT
+    C: `class:menu-tbl` -> `tag:tbody` ->  `tag:tr[4]` -> `tag:td[-1]` >> TEXT
+    D: `class:menu-tbl` -> `tag:tbody` ->  `tag:tr[5]` -> `tag:td[-1]` >> TEXT
 
 ANSWER FOR SA:
-    PATH:  `class:questionRowTbl` -> `tag:tbody` ->  `tag:tr[-1]` -> `tag:td[1]` >> TEXT 
+    PATH:  `class:questionRowTbl` -> `tag:tbody` ->  `tag:tr[-1]` -> `tag:td[-1]` >> TEXT 
     # IS EITHER -- or integer value.
 ### MISC NOTES
 

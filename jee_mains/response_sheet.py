@@ -4,7 +4,7 @@ import json
 import bs4
 import requests
 
-from constants import BASE_DIR
+from .constants import BASE_DIR
 
 
 def download_response_sheet_json(url_to_response_sheet):
@@ -40,14 +40,14 @@ def single_choice_question_handler(question_soup):
     question_data['chosen_option'] = str(question_soup.find(class_="menu-tbl").find('tbody').find_all('tr')[-1].find_all('td')[-1].string).strip()
     option = question_data['chosen_option']
     if option == "1":
-        question_data['chosen_option_id'] = question_data['A']
+        question_data['answer_given'] = question_data['A']
     elif option == "2":
-        question_data['chosen_option_id'] = question_data['B']
+        question_data['answer_given'] = question_data['B']
     elif option == "3":
-        question_data['chosen_option_id'] = question_data['C']
+        question_data['answer_given'] = question_data['C']
     elif option == "4":
-        question_data['chosen_option_id'] = question_data['D']
-    # question_data['chosen_option_id'] =
+        question_data['answer_given'] = question_data['D']
+
     return question_id, question_data
 
 
@@ -60,7 +60,7 @@ def integer_choice_question_handler(question_soup):
     # implementation details are given in single_choice_question_handler() and notes.md
     question_data = {"type": "INT"}
     question_data['status'] = str(question_soup.find(class_="menu-tbl").find('tbody').find_all('tr')[-1].find_all('td')[-1].string).strip()
-    question_data['given_answer'] = str(question_soup.find(class_="questionRowTbl").find('tbody').find_all('tr')[-1].find_all('td')[-1].string).strip()
+    question_data['answer_given'] = str(question_soup.find(class_="questionRowTbl").find('tbody').find_all('tr')[-1].find_all('td')[-1].string).strip()
     return question_id, question_data
 
 
