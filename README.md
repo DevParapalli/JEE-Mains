@@ -24,7 +24,7 @@ The format is `YYYY-MM-DD-S-LNG`.
 
 ## HOW-TOs
 
-0. Requirements:
+0. Requirements: Python, run `python -m pip install -r requirements.txt`
 1. Download this repository using either the download option in GitHub or `git clone https://github.com/DevParapalli/JEE-Mains.git`
 2. Save the response sheet page as a webpage file. Rename it to `response_sheet` and place it in the `response_sheet` folder.
 3. Make a copy of the `example_config` and rename it to `config`
