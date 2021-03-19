@@ -3,6 +3,6 @@ requests
 # To parse through the response sheet
 beautifulsoup4
 # low-level parser for bs4
-lxml
+html5lib 
 # For command line arguments
 typer

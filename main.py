@@ -45,4 +45,5 @@ if __name__ == "__main__":
     try:
         main()
     except Exception as e:
-        print('[E] Segmentation Fault') 
+        print('[E] Segmentation Fault')
+        raise e 

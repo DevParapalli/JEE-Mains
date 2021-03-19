@@ -22,20 +22,24 @@ The format is `YYYY-MM-DD-S-LNG`.
 - `S` is the shift in 1 digit (M for Morning, E for evening.)
 - `LNG` is the language in 3 digits (ENG for english)
 
+FOR FEB ATTEMPT USE `2020-02-BE-BTECH-MASTER` as shift code.
+
 ## HOW-TOs
 
-0. Requirements: Python, run `python -m pip install -r requirements.txt`
 1. Download this repository using either the download option in GitHub or `git clone https://github.com/DevParapalli/JEE-Mains.git`
-2. Save the response sheet page as a webpage file. Rename it to `response_sheet` and place it in the `response_sheet` folder.
-3. Make a copy of the `example_config` and rename it to `config`
-4. Edit the config to correctly add your shift code.
-5. Run the program using `python main.py`
+2. You need to have Python3.7 or greater installed. run `python -m pip install -r requirements.txt` to get the requirements.
+3. Save the response sheet page as a webpage file. Rename it to `response_sheet` and place it in the `response_sheet` folder.
+4. Make a copy of the `example_config` and rename it to `config`
+5. Edit the `config` file to correctly add your shift code.
+6. Run the program using `python main.py`
+
+- In case of errors or mistakes in the data, contact me over email using the address given above.
 
 ## TO-DO
 
 - This list is in no particular order.
 
-- [x] Main Program
+- [ ] BE/BTech and B.Arch/Planning seperation.
 - [ ] Answer Key Extraction/Importation
 - [ ] Website Monitor (JEE Mains Result Declaration etc.)
 - [x] Auto Downloader for Response Sheet(s).
@@ -43,6 +47,7 @@ The format is `YYYY-MM-DD-S-LNG`.
 - [ ] Helper Scripts to check for and correct errors.
 - [ ] A Graphical User Interface.
 - [ ] Add a setup script for windows and linux users. (BASH/PowerShellSpecific.)
-- [ ] Add a fallback parser (html.parser) incase the main (lxml) fails.
+- [x] Add a fallback parser (html.parser) incase the main (lxml) fails. (changed to html5lib)
 - [x] Add a HOW-TO to README.md
 - [x] Create a example config.json with some `??prefilled values??`
+- [ ] Create a WebApp for the results, paste your url and get teh results in about 5 seconds (very late game goal)
