@@ -5,23 +5,33 @@ from jee_mains import response_sheet, answer_key, constants, calculation
 BASE_DIR = constants.BASE_DIR
 CONFIG = constants.CONFIG
 
+
 def create_response_sheet():
     response_sheet.create_response_sheet_json()
-    
+
+
 def create_answer_key():
     shift_code = CONFIG["shift_code"]
-    try:
-        answer_key.download_latest_answer_key(shift_code)
-    except requests.exceptions.HTTPError:
-        print('[E] Answer Key not Found. Please check your shift code or contact EMAIL:devparapalli@gmail.com')
+    if CONFIG['cache_mode'] == "online-only":
+        try:
+            answer_key.online_only(shift_code)
+        except requests.exceptions.HTTPError:
+            print('[E] Answer Key not Found. Please check your shift code or contact EMAIL:devparapalli@gmail.com')
+
+    elif CONFIG['cache_mode'] == "offline-only":
+        try:
+            answer_key.offline_only(shift_code)
+        except FileNotFoundError:
+            print('[E] Answer Key not Found. Please check your shift code or change to online-only or normal mode.')
+    
+    elif CONFIG['cache_mode'] == "normal":
+        answer_key.normal(shift_code)
 
 
 def main():
     # Update the notice as the development progresses.
-    print(constants.NOTICE) 
-    print("[I] Parsing Response Sheet")
+    print(constants.NOTICE)
     create_response_sheet()
-    print("[D] Downloading latest Answer Key")
     create_answer_key()
     with open(BASE_DIR / 'temp' / 'parsed_response_sheet.json') as response_file:
         response_sheet = json.loads(response_file.read())
@@ -40,5 +50,6 @@ def main():
     ))
     print('Check ./temp/final_results.json for more details.')
     print('[Program Finished]')
+
 if __name__ == "__main__":
     main()

@@ -38,6 +38,24 @@ The format is `YYYY-MM-DD-S-LNG-PAPR`.
 Note: FOR FEB ATTEMPT USE `2021-02-BE-BTECH-MASTER` as shift code. # Working on other papers too
 This is ideally an exception. The other answer keys will follow the above rule.
 
+### LANGUAGES INFO
+
+```plaintext
+Urdu = UDU
+Assamese = ASM
+Bengali = BEN
+English = ENG
+Gujarati = GUJ
+Hindi = HIN
+Kannada = KAN
+Malayalam = MAL
+Marathi = MAR
+Odia = ODA
+Punjabi = PUN
+Tamil = TML
+Telugu = TGU
+```
+
 ## HOW-TOs
 
 1. Download this repository using either the download option in GitHub or `git clone https://github.com/DevParapalli/JEE-Mains.git`
@@ -55,7 +73,7 @@ This is ideally an exception. The other answer keys will follow the above rule.
 
 - [ ] BE/BTech and B.Arch/Planning seperation.
 - [ ] Auto determination of Shift Code
-- [ ] Answer Key Extraction/Importation
+- [x] Answer Key Extraction/Importation (Partially, I cant extract from PDFs automatically.)
 - [ ] Website Monitor (JEE Mains Result Declaration etc.)
 - [x] Auto Downloader for Response Sheet(s).
 - [x] Automatically updating answer-keys.

@@ -138,3 +138,14 @@ dmypy.json
 temp/*.txt
 temp/*.json
 temp/*.html
+
+#Random Testing Scripts
+__test__.py
+
+# Internal Testing Files
+__internals__/*.txt
+__internals__/*.html
+__internals__/*.json
+__internals__/output/*.txt
+__internals__/output/*.html
+__internals__/output/*.json

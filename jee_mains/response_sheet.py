@@ -4,18 +4,18 @@ import json
 import bs4
 import requests
 
-from .constants import BASE_DIR
+from .constants import BASE_DIR, CONFIG
+
 
 
 def download_response_sheet_json(url_to_response_sheet):
     """ Incase the response_sheet file is not present or user has explicitly requested it. """
     with open('./temp/response_sheet.html', 'wb') as response_sheet_file:
-        response_sheet_file.write(
-            requests.get(url_to_response_sheet).content
-        )
+        response = requests.get(url_to_response_sheet)
+        response.raise_for_status()
+        response_sheet_file.write(response.content)
     # We update and save the file here. Prevents redownloading.
-    shutil.copy("./temp/response_sheet.html",
-                "./response_sheet/response_sheet.html")
+    shutil.copy("./temp/response_sheet.html", "./response_sheet/response_sheet.html")
 
 
 def parse_type(question_soup):
@@ -90,11 +90,10 @@ def info_panel_handler(info_soup):
 
 def create_response_sheet_json(download=False):
     if download: # Do this only if explicitly stated.
-        with open(BASE_DIR / 'config.json') as file:
-            config = json.loads(file.read())
-            url = config['response_sheet_url']
-            download_response_sheet_json(url)
+        download_response_sheet_json(CONFIG['response_sheet_url'])
     
+    # Parsing Logic Here
+    print("[I] Parsing Response Sheet")
     with open(BASE_DIR / 'save_response_sheet_here' / 'response_sheet.html') as file:
         soup = bs4.BeautifulSoup(file.read(), features="html5lib")
     # We now successfully have a Soup object

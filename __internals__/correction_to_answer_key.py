@@ -22,24 +22,29 @@ HTML_ID = {
     "":"",
 }
 
-## VARIABLES TO EDIT
-FILENAME = 'shift_code.html'
-PATH_TO_CORRECTION_HTML = BASE_DIR / '__internals__' / FILENAME
-PATH_TO_OUTPUT_JSON = BASE_DIR / '__internals__' / (FILENAME.split('.')[0] + ".json")
 
-with open(PATH_TO_CORRECTION_HTML) as file:
-    SOUP = bs4.BeautifulSoup(file.read(), features='html5lib')
+def generate_answer_key(shift_code):
+    FILENAME = shift_code + '.html'
+    PATH_TO_CORRECTION_HTML = BASE_DIR / '__internals__' / FILENAME
+    PATH_TO_OUTPUT_JSON = BASE_DIR / '__internals__' / (FILENAME.split('.')[0] + ".json")
 
-QUESTIONS = {}
-for i in range(0, 200):
-    if i in range(0, 10): i = "0" + str(i)
-    try: 
-        question_id = str(SOUP.find('span', id=HTML_ID["question_id_format"].format(i)).string).strip()
-        answer_id = str(SOUP.find('span', id=HTML_ID["answer_id_format"].format(i)).string).strip()
-        QUESTIONS[question_id] = answer_id
-    except AttributeError:
-        continue
+    with open(PATH_TO_CORRECTION_HTML) as file:
+        markup = file.read()
+        SOUP = bs4.BeautifulSoup(markup, features='html5lib')
 
-with open(PATH_TO_OUTPUT_JSON, "w") as file:
-    file.write(json.dumps(QUESTIONS))
+    QUESTIONS = {}
+    for i in range(0, 200):
+        if i in range(0, 10): i = "0" + str(i)
+        try: 
+            question_id = str(SOUP.find('span', id=HTML_ID["question_id_format"].format(i)).string).strip()
+            answer_id = str(SOUP.find('span', id=HTML_ID["answer_id_format"].format(i)).string).strip()
+            QUESTIONS[question_id] = answer_id
+        except AttributeError:
+            continue
+
+    with open(PATH_TO_OUTPUT_JSON, "w") as file:
+        file.write(json.dumps(QUESTIONS))
+
+if __name__ == '__main__':
+    generate_answer_key('shift_code')
 
