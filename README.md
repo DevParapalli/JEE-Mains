@@ -1,6 +1,6 @@
 # JEE-Mains
 
-## NOTICE: If you have attempted JEE Mains in the current session [MARCH], Please save the correction submission page(Right Click -> Save As) and send the file to me over on email: [devparapalli@gmail.com](mailto:devparapalli@gmail.com). I can convert them into answer keys for use in this program
+## NOTICE: If you have attempted JEE Mains in the current session [MARCH], Please save the correction submission page(Right Click -> Save As) and send the file and your shift to me over on email: [devparapalli@gmail.com](mailto:devparapalli@gmail.com). I can convert them into answer keys for use in this program
 
 ## WIP Notice
 
