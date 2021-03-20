@@ -95,7 +95,7 @@ def create_response_sheet_json(download=False):
             url = config['response_sheet_url']
             download_response_sheet_json(url)
     
-    with open(BASE_DIR / 'response_sheet' / 'response_sheet.html') as file:
+    with open(BASE_DIR / 'save_response_sheet_here' / 'response_sheet.html') as file:
         soup = bs4.BeautifulSoup(file.read(), features="html5lib")
     # We now successfully have a Soup object
     # This is the object containing all the data.

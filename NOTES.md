@@ -7,6 +7,10 @@ everywhere a `str(...)` is used, I have added a `.strip()` to reduce the possibi
 
 ## MISC
 
+### Extraction of Answer Key from Correctional answer key
+
+The correctional answer key can be parsed using only html ids.
+More info about the parsing is in the `jee_mains/constants.py` file.
 ### Sorting Algorithm
 
 FOR EACH SECTION:

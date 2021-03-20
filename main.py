@@ -3,13 +3,12 @@ import requests
 from jee_mains import response_sheet, answer_key, constants, calculation
 
 BASE_DIR = constants.BASE_DIR
+CONFIG = constants.CONFIG
 
 def create_response_sheet():
     response_sheet.create_response_sheet_json()
     
 def create_answer_key():
-    with open(BASE_DIR / 'config.json') as file:
-        CONFIG = json.loads(file.read())
     shift_code = CONFIG["shift_code"]
     try:
         answer_key.download_latest_answer_key(shift_code)
@@ -42,8 +41,4 @@ def main():
     print('Check ./temp/final_results.json for more details.')
     print('[Program Finished]')
 if __name__ == "__main__":
-    try:
-        main()
-    except Exception as e:
-        print('[E] Segmentation Fault')
-        raise e 
+    main()

@@ -1,6 +1,10 @@
+import json
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
+
+with open(BASE_DIR / 'config.json') as file:
+    CONFIG = json.loads(file.read())
 
 NOTICE = """ 
 +--------------------------------------------------+
