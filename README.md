@@ -35,8 +35,7 @@ The format is `YYYY-MM-DD-S-LNG-PAPR`.
 - `LNG` is the language in 3 digits (ENG for english)
 - `PAPR` is the paper in 4 digits (TECH for BE/BTech, PLAN for Planning/Arch)
 
-Note: FOR FEB ATTEMPT USE `2021-02-BE-BTECH-MASTER` as shift code. # Working on other papers too
-This is ideally an exception. The other answer keys will follow the above rule.
+I am working on the Mar Attempt Answer Keys.
 
 ### LANGUAGES INFO
 
