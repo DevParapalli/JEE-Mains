@@ -1,5 +1,5 @@
 {
-    "response_sheet_url": "//https://path.to/response_sheet.html",
+    "response_sheet_url": "https://path.to/response_sheet.html",
     "cache_mode":"normal",
     "shift_code": "2021-02-BE-BTECH-MASTER",
     "DEBUG": false
