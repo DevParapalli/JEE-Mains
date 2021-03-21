@@ -22,6 +22,12 @@ LANG = {
 }
 
 
+def get_subject(course_string):
+    if course_string.find("Tech") != -1: return 'TECH'
+    if course_string.find("Planning") != -1 and course_string.find('Arch') == -1: return "PLAN"
+    if course_string.find("Planning") == -1 and course_string.find('Arch') != -1: return "ARCH"
+    if course_string.find("Planning") != -1 and course_string.find('Arch') != -1: return "PLAR"
+    else: return "UKN"
 def get_filename(answer_key):
     lines = answer_key.split('\n')
 
@@ -34,7 +40,7 @@ def get_filename(answer_key):
 
     # Course Logic
     course_str = data_alpha[2].replace("Medium", "").strip()
-    subject = "TECH" if course_str.find('Tech') != -1 else "PLAN"
+    subject = get_subject(course_str)
 
     # Language Logic
     language_str = data_alpha[3].strip()
@@ -47,20 +53,23 @@ def get_filename(answer_key):
     filename = "-".join((year, month, day, shift, lang, subject))
     return filename
 
-
-with open(BASE_DIR / '__internals__' / 'shift_code.txt') as file:
-    __split = file.read().split("Exam Date")
-    answer_keys = ["Exam Date" + portion for portion in __split]
-    # First one is borked since it contains the header for the page.
-    for answer_key in answer_keys[1:]:
-        file_name = get_filename(answer_key)
-        with open(BASE_DIR / "__internals__" / "output" / (file_name +".json"), "w") as file:
-            ANSWERS = {}
-            for line in answer_key.split('\n'):
-                # Skip if line doesn't contain question answer pair
-                if line.startswith(IGNORE_LINES_STARTSWITH): continue 
-                # Skip if line blank
-                if line == "": continue 
-                question, answer = line.split()
-                ANSWERS[question] = answer
-            file.write(json.dumps(ANSWERS))
+def main(string):
+    with open(BASE_DIR / '__internals__' / (string + '.txt')) as file:
+        __split = file.read().split("Exam Date")
+        answer_keys = ["Exam Date" + portion for portion in __split]
+        # First one is borked since it contains the header for the page.
+        for answer_key in answer_keys[1:]:
+            file_name = get_filename(answer_key)
+            with open(BASE_DIR / "__internals__" / "output" / (file_name +".json"), "w") as file:
+                ANSWERS = {}
+                for line in answer_key.split('\n'):
+                    # Skip if line doesn't contain question answer pair
+                    if line.startswith(IGNORE_LINES_STARTSWITH): continue 
+                    # Skip if line blank
+                    if line == "": continue 
+                    question, answer = line.split()
+                    ANSWERS[question] = answer
+                file.write(json.dumps(ANSWERS))
+                
+if __name__ == "__main__":
+    main("shift_code")

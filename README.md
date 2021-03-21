@@ -33,9 +33,10 @@ The format is `YYYY-MM-DD-S-LNG-PAPR`.
 - `DD` is the day in 2 digits (07)
 - `S` is the shift in 1 digit (M for Morning, E for evening.)
 - `LNG` is the language in 3 digits (ENG for english)
-- `PAPR` is the paper in 4 digits (TECH for BE/BTech, PLAN for Planning/Arch)
+- `PAPR` is the paper in 4 digits (TECH for BE/BTech, PLAN for Planning, ARCH for B.Arch, PLAR for Planning and Arch)
 
 I am working on the Mar Attempt Answer Keys.
+All February Attempt Keys are available now.
 
 ### LANGUAGES INFO
 
