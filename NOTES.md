@@ -52,7 +52,31 @@ OPTIONS FOR MCQ:
 ANSWER FOR SA:
     PATH:  `class:questionRowTbl` -> `tag:tbody` ->  `tag:tr[-1]` -> `tag:td[-1]` >> TEXT 
     # IS EITHER -- or integer value.
+
 ### MISC NOTES
 
-#### We save the files in their specified folder so we can reuse if needed.
+## The HTML Result Format
+
+### Information
+
+- The file will be named `ADMISSIONNUMBER.html`
+- The file will contain 3 sections.
+
+#### Section A
+
+- Will contain only information and compressed result.
+- Name, App No, Roll No, Test Date and Time, Subject, Marks
+
+
+#### Section B
+
+- Will contain exact details of the questions (no images unfortunately), 
+  - Stuff like Correct Incorrect and Left Question IDs.
+  - Number of total questions
+
+#### Section C - Can be removed optionally
+
+- Contains Information about the software and disclaimers.
+  - Version, Time of generation, Contact for help etc.
+
 

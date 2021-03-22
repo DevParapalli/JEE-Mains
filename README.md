@@ -61,9 +61,8 @@ Telugu = TGU
 1. Download this repository using either the download option in GitHub or `git clone https://github.com/DevParapalli/JEE-Mains.git`
 2. You need to have Python3.7 or greater installed. run `python -m pip install -r requirements.txt` to get the requirements.
 3. Save the response sheet page as a webpage file. Rename it to `response_sheet` and place it in the `save_response_sheet_here` folder.
-4. Make a copy of the `example_config` and rename it to `config`
-5. Edit the `config` file to correctly add your shift code. # Will work on automating this soon.
-6. Run the program using `python main.py`
+4. Run the program using `python main.py`.
+5. Open the generated HTML file to access your results.
 
 - In case of errors or mistakes in the data, contact me over email using the address given above.
 
@@ -71,17 +70,17 @@ Telugu = TGU
 
 - This list is in no particular order.
 
-- [ ] BE/BTech and B.Arch/Planning seperation.
-- [ ] Auto determination of Shift Code
-- [x] Answer Key Extraction/Importation (Partially, I cant extract from PDFs automatically.)
-- [ ] Website Monitor (JEE Mains Result Declaration etc.)
-- [x] Auto Downloader for Response Sheet(s).
-- [x] Automatically updating answer-keys.
-- [ ] Helper Scripts to check for and correct errors.
-- [ ] A way to check multiple urls/response sheets at a time. # Educational Institutes pls contact me over email.
-- [ ] A Graphical User Interface.
-- [ ] Add a setup script for windows and linux users. (BASH/PowerShellSpecific.)
-- [x] Add a fallback parser (html.parser) incase the main (lxml) fails. (changed to html5lib)
-- [x] Add a HOW-TO to README.md
-- [x] Create a example config.json with some `??prefilled values??`
-- [ ] Create a WebApp for the results, paste your url and get teh results in about 5 seconds (very late game goal)
+- ![Progress](https://progress-bar.dev/25/) BE/BTech and B.Arch/Planning seperation. (Answer Keys is done.)
+- ![Progress](https://progress-bar.dev/100/) Auto determination of Shift Code 
+- ![Progress](https://progress-bar.dev/60/) Answer Key Extraction/Importation (Partially, I cant extract from PDFs automatically.)
+- ![Progress](https://progress-bar.dev/0/) Website Monitor (JEE Mains Result Declaration etc.)
+- ![Progress](https://progress-bar.dev/65/) Auto Downloader for Response Sheet(s). (logic ready, working on implimentation)
+- ![Progress](https://progress-bar.dev/90/) Automatically updating answer-keys. (Need hash verification or time checking, downloads and correction work as intended.)
+- ![Progress](https://progress-bar.dev/0/) Helper Scripts to check for and correct errors. (Need to know what errors are possible.)
+- ![Progress](https://progress-bar.dev/50/) A way to check multiple urls/response sheets at a time. # Educational Institutes pls contact me over email. I am sure we can work out something.
+- ![Progress](https://progress-bar.dev/0/) A Graphical User Interface. (Need to finalize functionality first.)
+- ![Progress](https://progress-bar.dev/100/) Response Sheet Parsing.(Completed for TECH, PLANNING, Need Example Sheets for Arch.)
+- ![Progress](https://progress-bar.dev/80/) Add a HOW-TO to README.md (Expect a documentation rewrite soon.)
+- ![Progress](https://progress-bar.dev/100/) `config.json` is the place to configure this program.
+- ![Progress](https://progress-bar.dev/35/) Setup Scripts for specific use cases
+

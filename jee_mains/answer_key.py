@@ -15,16 +15,16 @@ def online_only(shift_code):
         answer_key.raise_for_status()
         answer_key_file.write(answer_key.content)
     # We update and save the file here. 
-    shutil.copy(BASE_DIR /'temp'/'answer_key.json', BASE_DIR / 'save_answer_key_here' / (shift_code +'.json'))
+    shutil.copy(BASE_DIR /'temp'/'answer_key.json', BASE_DIR / 'answer_key_storage' / (shift_code +'.json'))
 
 def create_answer_key_lookup_table():
     """ Creates an answer_key from scratch. """
     raise NotImplementedError
 
 def offline_only(shift_code):
-    if os.path.exists(BASE_DIR / 'save_answer_key_here' / (shift_code + ".json")):
+    if os.path.exists(BASE_DIR / 'answer_key_storage' / (shift_code + ".json")):
         print("[I] Selecting Answer Key")
-        shutil.copy(BASE_DIR / 'save_answer_key_here' / (shift_code +'.json'), BASE_DIR /'temp'/'answer_key.json',)
+        shutil.copy(BASE_DIR / 'answer_key_storage' / (shift_code +'.json'), BASE_DIR /'temp'/'answer_key.json',)
     else: raise FileNotFoundError
 
 def normal(shift_code):

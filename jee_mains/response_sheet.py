@@ -81,16 +81,32 @@ def section_handler(section_soup):
     return return_data
 
 
-def info_panel_handler(info_soup):
+def info_panel_handler(info_soup, language="ENG"):
     return_data = {}
     for tr in info_soup.find_all('tr'):
         key, value = tr.find_all('td')
         return_data[str(key.string).strip()] = str(value.string).strip()
+    # Shift Code Logic
+    date =  return_data["Test Date"]
+    day, month, year = date.split('/')
+    
+    raw_subject = return_data["Subject"]
+    subject = "MASTER"
+    if raw_subject.find('TECH') != -1 : subject = "TECH"
+    elif raw_subject.find('PL') != -1 and raw_subject.find('AR') != -1: subject = "PLAR"
+    elif raw_subject.find('PL') != -1: subject = "PLAN"
+    elif raw_subject.find('AR') != -1: subject = "ARCH"
+    time = return_data["Test Time"]
+    shift =  "E" if time.find("3:00") != -1 else "M"
+    
+    shift_code = "-".join((year, month, day, shift, language, subject))
+    return_data["shift_code"] = shift_code
+    
     return return_data
 
-def create_response_sheet_json(download=False):
+def create_response_sheet_json(download=False, url=CONFIG['response_sheet_url']):
     if download: # Do this only if explicitly stated.
-        download_response_sheet_json(CONFIG['response_sheet_url'])
+        download_response_sheet_json(url)
     
     # Parsing Logic Here
     print("[I] Parsing Response Sheet")
@@ -110,11 +126,18 @@ def create_response_sheet_json(download=False):
     response_sheet_content["physics-integer"] = section_handler(sections[1])
     response_sheet_content["chemistry-single"] = section_handler(sections[2])
     response_sheet_content["chemistry-integer"] = section_handler(sections[3])
-    response_sheet_content["maths-single"] = section_handler(sections[4])
-    response_sheet_content["maths-integer"] = section_handler(sections[5])
-
+    try:
+        response_sheet_content["maths-single"] = section_handler(sections[4])
+        response_sheet_content["maths-integer"] = section_handler(sections[5])
+    except KeyError: 
+        # Added logic incase two sections are given, The code keys don't reflect the content. A final Result is what matters
+        # Planning has Maths-Apt-Planning
+        # Arch has Maths-Apt
+        pass
     with open(BASE_DIR / 'temp' / 'parsed_response_sheet.json', "w") as file:
         file.write(json.dumps(response_sheet_content))
+    
+    return response_sheet_content['info']["shift_code"]
 
 
 def main():

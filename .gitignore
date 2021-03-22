@@ -131,7 +131,7 @@ dmypy.json
 # Inputs to the program
 *.html
 *.json
-!example_config.json 
+!config.json 
 # This is an example config, rename and place as config
 
 # Temporary Files

@@ -1,0 +1,10 @@
+{
+    "DEBUG": false,
+    "response_sheet_url": "https://path.to/response_sheet.html",
+    "download_response_sheet":false,
+    "cache_mode": "normal",
+    "open_on_complete": false,
+    "multiple_responses": false,
+    "path_to_responses_txt":"C://PATH/TO/Responses.txt"
+
+}

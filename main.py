@@ -2,16 +2,16 @@ import json
 import requests
 from jee_mains import response_sheet, answer_key, constants, calculation
 
+
 BASE_DIR = constants.BASE_DIR
 CONFIG = constants.CONFIG
 
 
 def create_response_sheet():
-    response_sheet.create_response_sheet_json()
+    return response_sheet.create_response_sheet_json()
 
 
-def create_answer_key():
-    shift_code = CONFIG["shift_code"]
+def create_answer_key(shift_code):
     if CONFIG['cache_mode'] == "online-only":
         try:
             answer_key.online_only(shift_code)
@@ -31,8 +31,8 @@ def create_answer_key():
 def main():
     # Update the notice as the development progresses.
     print(constants.NOTICE)
-    create_response_sheet()
-    create_answer_key()
+    shift_code = create_response_sheet()
+    create_answer_key(shift_code)
     with open(BASE_DIR / 'temp' / 'parsed_response_sheet.json') as response_file:
         response_sheet = json.loads(response_file.read())
     with open(BASE_DIR / 'temp' / 'answer_key.json') as answer_file:
@@ -47,8 +47,9 @@ def main():
         ttim=data['__INF__']['Test Time'],
         subj=data['__INF__']['Subject'],
         mark=data['__INF__']['Marks'],
+        shft=data['__INF__']["shift_code"]
     ))
-    print('Check ./temp/final_results.json for more details.')
+    print('Check Result in Results folder for more details.')
     print('[Program Finished]')
 
 if __name__ == "__main__":

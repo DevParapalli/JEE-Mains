@@ -28,4 +28,8 @@ RESULT = """
     TEST TIME:          {ttim}
     SUBJECT:            {subj}
     MARKS:              {mark}
+    SHIFT CODE:         {shft}
+"""
+RESULT_TEMPLATE = """
+
 """
