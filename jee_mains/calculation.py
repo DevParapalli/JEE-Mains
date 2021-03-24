@@ -23,15 +23,26 @@ def section_calculate_marks(section_dict, answer_dict):
         if question['status'].find('Not') != -1: # Question Is Not Answered.
             question['correct_answer'] = answer
             LEFT[key] = (question)
+        
         elif answer == "D": # Question has been Dropped
             question['correct_answer'] = "Question Dropped"
             CORRECT[key] = (question)
+        
+        elif 'or' in answer: # Multiple Correct
+            answers = [ans.split() for ans in answer.split('or')]
+            if question['answer_given'] in answers:
+                CORRECT[key] = (question)
+            else:
+                NOTCORRECT[key] = (question)
+                
         elif question['answer_given'] == answer: # The question is correctly attempted.
             question['correct_answer'] = answer
             CORRECT[key] = (question)
+        
         elif question['answer_given'] != answer: # The question is incorrectly attempted.
             question['correct_answer'] = answer
             NOTCORRECT[key] = (question)
+    
     return len(CORRECT), len(NOTCORRECT), len(LEFT), CORRECT, NOTCORRECT, LEFT
 
 def calculate(response_dict, answer_dict):

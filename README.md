@@ -1,7 +1,5 @@
 # JEE-Mains
 
-## NOTICE: If you have attempted JEE Mains in the current session [MARCH], Please save the correction submission page(Right Click -> Save As) and send the file and your shift to me over on email: [devparapalli@gmail.com](mailto:devparapalli@gmail.com). I can convert them into answer keys for use in this program
-
 ## WIP Notice
 
 - This repository is a work-in-progress, the content on this repo can change very frequently. Make sure to keep up with changes on this repository.
@@ -20,7 +18,7 @@ The config file contains parameters that alter the functionality of the program.
   - `normal` fetches the answer key if it doesn't exist on your pc. Else uses the one already present.
   - `offline-only` only uses the answer keys saved on your pc. Raises an Exception if it doesn't exist.
 
-- response_sheet_url contains the url to your response sheet. It usually begins with `https://cdnX.digitalm.com` etc. 
+- response_sheet_url contains the url to your response sheet. It usually begins with `https://cdnX.digitalm.com` etc.
 - DEBUG Flag can be set to true or false depending on the level of trouble shooting you maybe doing. Default is false.
 
 ## ShiftCode Explanation
@@ -71,7 +69,7 @@ Telugu = TGU
 - This list is in no particular order.
 
 - ![Progress](https://progress-bar.dev/25/) BE/BTech and B.Arch/Planning seperation. (Answer Keys is done.)
-- ![Progress](https://progress-bar.dev/100/) Auto determination of Shift Code 
+- ![Progress](https://progress-bar.dev/100/) Auto determination of Shift Code
 - ![Progress](https://progress-bar.dev/60/) Answer Key Extraction/Importation (Partially, I cant extract from PDFs automatically.)
 - ![Progress](https://progress-bar.dev/0/) Website Monitor (JEE Mains Result Declaration etc.)
 - ![Progress](https://progress-bar.dev/65/) Auto Downloader for Response Sheet(s). (logic ready, working on implimentation)

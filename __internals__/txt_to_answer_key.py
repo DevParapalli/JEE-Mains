@@ -67,7 +67,7 @@ def main(string):
                     if line.startswith(IGNORE_LINES_STARTSWITH): continue 
                     # Skip if line blank
                     if line == "": continue 
-                    question, answer = line.split()
+                    question, answer = line.split(maxsplit=1)
                     ANSWERS[question] = answer
                 file.write(json.dumps(ANSWERS))
                 
