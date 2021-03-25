@@ -81,4 +81,4 @@ Telugu = TGU
 - ![Progress](https://progress-bar.dev/80/) Add a HOW-TO to README.md (Expect a documentation rewrite soon.)
 - ![Progress](https://progress-bar.dev/100/) `config.json` is the place to configure this program.
 - ![Progress](https://progress-bar.dev/35/) Setup Scripts for specific use cases
-
+- ![Progress](https://progress-bar.dev/0/) Rewrite program to be more optimized and faster. Will probably try to decrease parsing and iterations as much as possible. Currently parses 4 times and iterates questions approx 3 times for 1 calculation. 
