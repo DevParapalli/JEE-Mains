@@ -69,7 +69,6 @@ Telugu = TGU
 - This list is in no particular order.
 
 - ![Progress](https://progress-bar.dev/25/) BE/BTech and B.Arch/Planning seperation. (Answer Keys is done.)
-- ![Progress](https://progress-bar.dev/100/) Auto determination of Shift Code
 - ![Progress](https://progress-bar.dev/60/) Answer Key Extraction/Importation (Partially, I cant extract from PDFs automatically.)
 - ![Progress](https://progress-bar.dev/0/) Website Monitor (JEE Mains Result Declaration etc.)
 - ![Progress](https://progress-bar.dev/65/) Auto Downloader for Response Sheet(s). (logic ready, working on implimentation)
@@ -77,8 +76,7 @@ Telugu = TGU
 - ![Progress](https://progress-bar.dev/0/) Helper Scripts to check for and correct errors. (Need to know what errors are possible.)
 - ![Progress](https://progress-bar.dev/50/) A way to check multiple urls/response sheets at a time. # Educational Institutes pls contact me over email. I am sure we can work out something.
 - ![Progress](https://progress-bar.dev/0/) A Graphical User Interface. (Need to finalize functionality first.)
-- ![Progress](https://progress-bar.dev/100/) Response Sheet Parsing.(Completed for TECH, PLANNING, Need Example Sheets for Arch.)
-- ![Progress](https://progress-bar.dev/80/) Add a HOW-TO to README.md (Expect a documentation rewrite soon.)
+- ![Progress](https://progress-bar.dev/80/) Add a better HOW-TO to README.md (Expect a documentation rewrite soon.)
 - ![Progress](https://progress-bar.dev/100/) `config.json` is the place to configure this program.
 - ![Progress](https://progress-bar.dev/35/) Setup Scripts for specific use cases
-- ![Progress](https://progress-bar.dev/0/) Rewrite program to be more optimized and faster. Will probably try to decrease parsing and iterations as much as possible. Currently parses 4 times and iterates questions approx 3 times for 1 calculation. 
+- ![Progress](https://progress-bar.dev/50/) Rewrite program to be more optimized and faster. Will probably try to decrease parsing and iterations as much as possible. Currently parses 4 times and iterates questions approx 3 times for 1 calculation. Need to write a way to setup the program.

@@ -134,10 +134,11 @@ def create_response_sheet_json(download=False, url=CONFIG['response_sheet_url'])
         # Planning has Maths-Apt-Planning
         # Arch has Maths-Apt
         pass
-    with open(BASE_DIR / 'temp' / 'parsed_response_sheet.json', "w") as file:
-        file.write(json.dumps(response_sheet_content))
+    # Removed the logic for saving parsed response sheet.
+    #//with open(BASE_DIR / 'temp' / 'parsed_response_sheet.json', "w") as file:
+    #//    file.write(json.dumps(response_sheet_content))
     
-    return response_sheet_content['info']["shift_code"]
+    return response_sheet_content['info']["shift_code"], response_sheet_content
 
 
 def main():

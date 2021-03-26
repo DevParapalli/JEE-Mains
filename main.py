@@ -14,40 +14,37 @@ def create_response_sheet():
 def create_answer_key(shift_code):
     if CONFIG['cache_mode'] == "online-only":
         try:
-            answer_key.online_only(shift_code)
+            return answer_key.online_only(shift_code)
         except requests.exceptions.HTTPError:
             print('[E] Answer Key not Found. Please check your shift code or contact EMAIL:devparapalli@gmail.com')
 
     elif CONFIG['cache_mode'] == "offline-only":
         try:
-            answer_key.offline_only(shift_code)
+            return answer_key.offline_only(shift_code)
         except FileNotFoundError:
             print('[E] Answer Key not Found. Please check your shift code or change to online-only or normal mode.')
     
     elif CONFIG['cache_mode'] == "normal":
-        answer_key.normal(shift_code)
+        return answer_key.normal(shift_code)
 
 
 def main():
     # Update the notice as the development progresses.
     print(constants.NOTICE)
-    shift_code = create_response_sheet()
-    create_answer_key(shift_code)
-    with open(BASE_DIR / 'temp' / 'parsed_response_sheet.json') as response_file:
-        response_sheet = json.loads(response_file.read())
-    with open(BASE_DIR / 'temp' / 'answer_key.json') as answer_file:
-        answer_key = json.loads(answer_file.read())
+    shift_code, response_sheet = create_response_sheet()
+    answer_key = create_answer_key(shift_code)
     data = calculation.calculate(response_sheet, answer_key)
     result_str = constants.RESULT
+    print_data = data['__INF__']
     print(result_str.format(
-        name=data['__INF__']['Candidate Name'],
-        admn=data['__INF__']['Application No'],
-        roll=data['__INF__']['Roll No.'],
-        tdte=data['__INF__']['Test Date'],
-        ttim=data['__INF__']['Test Time'],
-        subj=data['__INF__']['Subject'],
-        mark=data['__INF__']['Marks'],
-        shft=data['__INF__']["shift_code"]
+        name=print_data['Candidate Name'],
+        admn=print_data['Application No'],
+        roll=print_data['Roll No.'],
+        tdte=print_data['Test Date'],
+        ttim=print_data['Test Time'],
+        subj=print_data['Subject'],
+        mark=print_data['Marks'],
+        shft=print_data["shift_code"]
     ))
     print('Check Result in Results folder for more details.')
     print('[Program Finished]')

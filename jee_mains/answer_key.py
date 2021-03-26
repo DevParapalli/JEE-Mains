@@ -1,35 +1,35 @@
+import json
 import os
-import shutil
+
 
 import requests
 
-from .constants import BASE_DIR, CONFIG
+from .constants import BASE_DIR
 
-
+answer_key_ext = ".json"
 
 def online_only(shift_code):
     """ Downloads a prepared answer key from a repo"""    
-    with open('./temp/answer_key.json', "wb") as answer_key_file:
-        print("[D] Downloading latest Answer Key")
-        answer_key = requests.get('https://raw.githubusercontent.com/DevParapalli/JEE-Mains-AnswerKeys/main/' + shift_code + ".json")
-        answer_key.raise_for_status()
-        answer_key_file.write(answer_key.content)
-    # We update and save the file here. 
-    shutil.copy(BASE_DIR /'temp'/'answer_key.json', BASE_DIR / 'answer_key_storage' / (shift_code +'.json'))
+    #//print("[D] Downloading latest Answer Key")
+    answer_key = requests.get('https://raw.githubusercontent.com/DevParapalli/JEE-Mains-AnswerKeys/main/' + shift_code + answer_key_ext)
+    answer_key.raise_for_status()
+    return answer_key.json()
+    # Removed logic for saving the file.
+    #shutil.copy(BASE_DIR /'temp'/'answer_key.json', BASE_DIR / 'answer_key_storage' / (shift_code +'.json'))
 
 def create_answer_key_lookup_table():
     """ Creates an answer_key from scratch. """
     raise NotImplementedError
 
 def offline_only(shift_code):
-    if os.path.exists(BASE_DIR / 'answer_key_storage' / (shift_code + ".json")):
-        print("[I] Selecting Answer Key")
-        shutil.copy(BASE_DIR / 'answer_key_storage' / (shift_code +'.json'), BASE_DIR /'temp'/'answer_key.json',)
+    if os.path.exists(BASE_DIR / 'answer_key_storage' / (shift_code + answer_key_ext)):
+        #//print("[I] Selecting Answer Key")
+        return json.loads(open(BASE_DIR / 'answer_key_storage' / (shift_code + answer_key_ext)).read())
     else: raise FileNotFoundError
 
 def normal(shift_code):
     try:
-        offline_only(shift_code)
+        return offline_only(shift_code)
     except FileNotFoundError:
-        print("[E] File Not Found, Downloading")
-        online_only(shift_code)
+        #//print("[E] File Not Found, Downloading")
+        return online_only(shift_code)
