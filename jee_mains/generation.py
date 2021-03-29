@@ -10,29 +10,29 @@ def generate(QUESTIONS_DICT):
 
 
 #         [key for key in DICT]
-    PSC = [question for question in QUESTIONS_DICT['PSC']]
-    PSN = [question for question in QUESTIONS_DICT['PSN']]
-    PSL = [question for question in QUESTIONS_DICT['PSL']]
+    PSC = {question for question in QUESTIONS_DICT['PSC']}
+    PSN = {question for question in QUESTIONS_DICT['PSN']}
+    PSL = {question for question in QUESTIONS_DICT['PSL']}
 
-    PIC = [question for question in QUESTIONS_DICT['PIC']]
-    PIN = [question for question in QUESTIONS_DICT['PIN']]
-    PIL = [question for question in QUESTIONS_DICT['PIL']]
+    PIC = {question for question in QUESTIONS_DICT['PIC']}
+    PIN = {question for question in QUESTIONS_DICT['PIN']}
+    PIL = {question for question in QUESTIONS_DICT['PIL']}
 
-    CSC = [question for question in QUESTIONS_DICT['CSC']]
-    CSN = [question for question in QUESTIONS_DICT['CSN']]
-    CSL = [question for question in QUESTIONS_DICT['CSL']]
+    CSC = {question for question in QUESTIONS_DICT['CSC']}
+    CSN = {question for question in QUESTIONS_DICT['CSN']}
+    CSL = {question for question in QUESTIONS_DICT['CSL']}
 
-    CIC = [question for question in QUESTIONS_DICT['CIC']]
-    CIN = [question for question in QUESTIONS_DICT['CIN']]
-    CIL = [question for question in QUESTIONS_DICT['CIL']]
+    CIC = {question for question in QUESTIONS_DICT['CIC']}
+    CIN = {question for question in QUESTIONS_DICT['CIN']}
+    CIL = {question for question in QUESTIONS_DICT['CIL']}
 
-    MSC = [question for question in QUESTIONS_DICT['MSC']]
-    MSN = [question for question in QUESTIONS_DICT['MSN']]
-    MSL = [question for question in QUESTIONS_DICT['MSL']]
+    MSC = {question for question in QUESTIONS_DICT['MSC']}
+    MSN = {question for question in QUESTIONS_DICT['MSN']}
+    MSL = {question for question in QUESTIONS_DICT['MSL']}
 
-    MIC = [question for question in QUESTIONS_DICT['MIC']]
-    MIN = [question for question in QUESTIONS_DICT['MIN']]
-    MIL = [question for question in QUESTIONS_DICT['MIL']]
+    MIC = {question for question in QUESTIONS_DICT['MIC']}
+    MIN = {question for question in QUESTIONS_DICT['MIN']}
+    MIL = {question for question in QUESTIONS_DICT['MIL']}
 
     rendered_page = TEMPLATE.format(
         styles="@media print{ .no-print{visibility:hidden}}",

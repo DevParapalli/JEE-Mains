@@ -48,29 +48,29 @@ def section_calculate_marks(section_dict, answer_dict):
 def calculate(response_dict, answer_dict):
     MARKS = 0 # Marks Counter
     QUESTIONS = {
-        "PSC":[], # +4
-        "PSN":[], # -1
-        "PSL":[], # +0
+        "PSC":{}, # +4
+        "PSN":{}, # -1
+        "PSL":{}, # +0
         
-        "PIC":[], # +4
-        "PIN":[], # +0
-        "PIL":[], # +0
+        "PIC":{}, # +4
+        "PIN":{}, # +0
+        "PIL":{}, # +0
         
-        "CSC":[], # +4
-        "CSN":[], # -1
-        "CSL":[], # +0
+        "CSC":{}, # +4
+        "CSN":{}, # -1
+        "CSL":{}, # +0
         
-        "CIC":[], # +4
-        "CIN":[], # +0
-        "CIL":[], # +0
+        "CIC":{}, # +4
+        "CIN":{}, # +0
+        "CIL":{}, # +0
         
-        "MSC":[], # +4
-        "MSN":[], # -1
-        "MSL":[], # +0
+        "MSC":{}, # +4
+        "MSN":{}, # -1
+        "MSL":{}, # +0
         
-        "MIC":[], # +4
-        "MIN":[], # +0
-        "MIL":[], # +0
+        "MIC":{}, # +4
+        "MIN":{}, # +0
+        "MIL":{}, # +0
         
         "__INF__":{}
     }
