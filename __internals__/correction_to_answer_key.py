@@ -46,5 +46,5 @@ def generate_answer_key(shift_code):
         file.write(json.dumps(QUESTIONS))
 
 if __name__ == '__main__':
-    generate_answer_key('shift_code')
+    generate_answer_key('answerkey')
 

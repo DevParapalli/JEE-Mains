@@ -149,3 +149,6 @@ __internals__/*.json
 __internals__/output/*.txt
 __internals__/output/*.html
 __internals__/output/*.json
+
+save_response_sheet_here/**
+!save_response_sheet_here/.gitinclude

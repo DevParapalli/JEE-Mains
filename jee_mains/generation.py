@@ -38,7 +38,7 @@ def generate(QUESTIONS_DICT):
         styles="@media print{ .no-print{visibility:hidden}}",
         name=INFO["Candidate Name"],
         admission_number=INFO["Application No"],
-        roll_number=INFO["Roll No."],
+        roll_number=INFO["Roll No"],
         test_date=INFO["Test Date"],
         test_time=INFO["Test Time"],
         subject=INFO["Subject"],

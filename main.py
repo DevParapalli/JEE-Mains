@@ -39,7 +39,7 @@ def main():
     print(result_str.format(
         name=print_data['Candidate Name'],
         admn=print_data['Application No'],
-        roll=print_data['Roll No.'],
+        roll=print_data['Roll No'],
         tdte=print_data['Test Date'],
         ttim=print_data['Test Time'],
         subj=print_data['Subject'],
