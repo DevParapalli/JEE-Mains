@@ -1,7 +1,7 @@
 import json
 import string
 
-from .correction_to_answer_key import BASE_DIR, CONFIG
+from correction_to_answer_key import BASE_DIR, CONFIG
 
 IGNORE_LINES_STARTSWITH = tuple([letter for letter in string.ascii_letters + "!@#$%^&*(" + "  "])
 
@@ -32,7 +32,8 @@ def get_filename(answer_key):
     lines = answer_key.split('\n')
 
     # Date Logic
-    # Exam Date : 26.02.2021 Course : B.E./B.Tech Medium : English
+    # Exam Date : 26.02.2021 Course : B.E./B.Tech Medium : English 
+    # Medium is not always present. Use English as a default.
     date_line = lines[0]
     data_alpha = [portion.strip() for portion in date_line.split(":")]
     date_str = data_alpha[1].replace("Course", "").strip()
@@ -43,7 +44,11 @@ def get_filename(answer_key):
     subject = get_subject(course_str)
 
     # Language Logic
-    language_str = data_alpha[3].strip()
+    try:
+        language_str = data_alpha[3].strip()
+    except IndexError: 
+        language_str = "English"
+
     lang = LANG[language_str]
 
     # Shift timing Logic
@@ -72,4 +77,4 @@ def main(string):
                 file.write(json.dumps(ANSWERS))
                 
 if __name__ == "__main__":
-    main("shift_code")
+    main("march_final")
